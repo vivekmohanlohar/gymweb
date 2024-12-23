@@ -1,0 +1,809 @@
+/* Importing fonts from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Root Colors */
+:root {
+  /*  --primary-green: #94F453;
+  --shadow-green: #4CA90D;*/
+  --primary-green: #F4ED53;
+  --shadow-green: #CBC509;
+  --background: #030303;
+
+  --normal-text: #FDFDFD;
+  --darked-text: #E7E7E6;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline-color: none;
+  text-decoration: none;
+  list-style: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/*===== BASE =====*/
+*::before,
+*::after {
+  box-sizing: border-box;
+  position: absolute;
+  content: "";
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  line-height: 1.7;
+  font-family: "Poppins", serif;
+  color: var(--normal-text);
+  position: relative;
+  background: var(--background);
+}
+
+/* ---- Default Basic Styles ---- */
+
+img {
+  object-fit: cover;
+  width: 100%;
+}
+
+section {
+  padding: 3rem 0;
+}
+
+.container {
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 80%;
+  }
+}
+
+i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-green);
+}
+
+p {
+  color: #CACACAF7;
+}
+
+a {
+  text-decoration: none;
+  font-weight: 500;
+}
+
+button {
+  padding: 10px 20px;
+  background: var(--normal-text);
+  color: #000;
+  border-radius: 20px;
+  margin: 20px 0 0 0;
+}
+
+button a {
+  color: #000;
+}
+
+.section-heading {
+  background: transparent;
+  padding: 10px 25px;
+  font-size: .9rem;
+  font-weight: 500;
+  border: 2px solid var(--shadow-green);
+  border-radius: 20px;
+  color: var(--normal-text);
+  display: inline;
+  font-weight: 600;
+}
+
+/* NAVIGATION BAR */
+nav {
+  text-transform: uppercase;
+  height: 80px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  color: #ffffff;
+}
+
+nav.hidden {
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+nav.visible {
+  transform: translateY(0);
+}
+
+/* added class swith JS */
+.window-scroll {
+  background-color: var(--background);
+}
+
+.nav__container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LOGO STARTS HERE */
+.logo {
+  z-index: 98;
+}
+
+.logo img {
+  height: 3.5rem;
+}
+
+.nav__navigation ul {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.nav__navigation ul li a {
+  font-weight: 700;
+  width: 100%;
+  height: 100%;
+  font-size: 1rem;
+  position: relative;
+}
+
+@keyframes fillbar {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 2.5rem;
+  }
+}
+
+.nav__navigation ul li a:hover {
+  color: var(--darked-text);
+}
+
+.li-none-desk {
+  display: none;
+}
+
+/* hiding menu button for desktop */
+.menuBtn {
+  margin-right: .6rem;
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+
+  /* sm-NAVIGATION STARTS HERE */
+  .nav-container {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  section.animate-section {
+    min-height: 10vh;
+  }
+
+  .animate-text span {
+    font-size: 2rem;
+  }
+
+  .nav__navigation {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background: var(--background);
+    transition: all 400ms ease;
+  }
+
+  /* added class with JavaScript */
+  .active {
+    right: 0;
+    transition: all 400ms ease;
+  }
+
+  .nav__navigation {
+    display: grid;
+    place-items: center;
+  }
+
+  .nav__navigation ul {
+    margin: auto 0;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .nav__navigation ul li {
+    width: 100%;
+    height: 100%;
+    transition: all 400ms ease;
+  }
+
+  .nav__navigation ul li a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--normal-text);
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 1.5;
+  }
+
+  .nav__navigation ul li a:hover::after {
+    display: none;
+  }
+
+  .nav__navigation ul li a:hover {
+    color: var(--shadow-green);
+  }
+
+  .li-none-desk {
+    display: block;
+  }
+
+  .menuBtn {
+    width: 2.4rem;
+    /* Ensure the button has a fixed width */
+    height: 2.4rem;
+    /* Set the height equal to width for a square button */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+    z-index: 10;
+    overflow: hidden;
+    /* Prevents overflowing lines */
+    transform: translateY(-10px)
+  }
+
+  .menuBtn span {
+    position: absolute;
+    width: 100%;
+    height: 0.2rem;
+    background: var(--primary-green);
+    border-radius: 4px;
+    transition: all 0.35s cubic-bezier(.5, -0.35, .35, 1.5);
+    will-change: transform, opacity, top;
+    opacity: 1;
+  }
+
+  .menuBtn span:nth-child(1) {
+    top: 0.3rem;
+    width: 80%;
+    /* Ensures it's slightly smaller than the button */
+    transform-origin: center center;
+  }
+
+  .menuBtn span:nth-child(2) {
+    top: 0.9rem;
+    width: 90%;
+    transform-origin: center center;
+  }
+
+  .menuBtn span:nth-child(3) {
+    top: 1.5rem;
+    width: 80%;
+    transform-origin: center center;
+  }
+
+  .menu-active span:nth-child(1) {
+    transform: rotate(45deg) scale(1.2);
+    top: 0.9rem;
+    width: 100%;
+    /* Full width when rotated */
+    background: var(--primary-green);
+  }
+
+  .menu-active span:nth-child(2) {
+    opacity: 0;
+    transform: scale(0.4) rotate(45deg);
+  }
+
+  .menu-active span:nth-child(3) {
+    transform: rotate(-45deg) scale(1.2);
+    top: 0.9rem;
+    width: 100%;
+    background: var(--primary-color);
+  }
+
+  .menu-active {
+    animation: bounce 0.6s ease-out forwards;
+  }
+
+  @keyframes bounce {
+    0% {
+      transform: scale(1);
+    }
+
+    30% {
+      transform: scale(1.1);
+    }
+
+    50% {
+      transform: scale(1);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px) scale(0.9);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes slideOut {
+    from {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(10px) scale(0.9);
+    }
+  }
+
+  .menuBtn span {
+    visibility: visible;
+  }
+
+  .menuBtn.menu-active span {
+    animation: slideIn 0.5s ease-out forwards;
+  }
+
+  .menuBtn:not(.menu-active) span {
+    animation: slideOut 0.5s ease-out forwards;
+  }
+
+  /* Ensure the Services dropdown is hidden by default */
+  .nav__navigation .dropdown {
+    position: relative;
+  }
+
+  .nav__navigation .dropdown-content {
+    display: none;
+    /* Hidden by default */
+    position: absolute;
+    background-color: #333;
+    /* Dark background for dropdown */
+    min-width: 160px;
+    z-index: 1000;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+  }
+
+  .nav__navigation .dropdown:hover .dropdown-content {
+    display: block;
+    /* Show dropdown on hover */
+  }
+
+  .nav__navigation .dropdown-content a {
+    color: #fff;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+    font-size: 16px;
+  }
+
+  .nav__navigation .dropdown-content a:hover {
+    background-color: #575757;
+    /* Hover effect for the links */
+  }
+
+  .nav__navigation .dropdown-content a i {
+    margin-left: 10px;
+    /* Add some space between the text and the icon */
+  }
+
+  .nav__navigation .dropdown {
+    padding: 10px;
+    /* Optional padding for better spacing */
+  }
+
+  header {
+    height: 100vh;
+  }
+
+  header .container {
+    height: 100%;
+  }
+
+  .hero-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .hero-container:hover h2 {
+    font-size: 4rem;
+    transition: all 200ms ease;
+    transform: skewY(-5deg) translateX(-50%);
+  }
+
+  .hero-container h2 {
+    position: absolute;
+    transform: skewY(-3deg) translateX(-50%);
+    text-align: center;
+    top: 20%;
+    left: 50%;
+    font-size: 3.8rem;
+    line-height: 1.2;
+    font-weight: 800;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: white;
+  }
+
+  .hero-container h2 span {
+    -webkit-text-stroke-color: var(--primary-green);
+    color: var(--primary-green);
+  }
+
+  .hero-container img {
+    height: 50%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  ;
+  /* ---- About Gym ---- */
+
+  .about-gym p {
+    margin: 0 0 30px 0;
+  }
+
+  .about-gym strong {
+    color: var(--shadow-green);
+  }
+
+  /* ---- Gym Services short for about ---- */
+
+  .gym-services {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0 0 30px 0;
+  }
+
+  .gym-services a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    padding-bottom: 10px;
+    max-width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    border-bottom: 2px solid var(--shadow-green);
+    transition: all 400ms ease;
+  }
+
+  .gym-services a i {
+    width: 20px;
+    height: 20px;
+    font-size: 1.6rem;
+  }
+
+  .gym-services a:hover {
+    color: #3bb09e;
+    gap: 2.5rem;
+  }
+
+  /* ---- Gym Services ---- */
+
+  .service-details {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  @media scren and (min-width: 768px) {
+    .service-details {
+      flex-direction: row;
+    }
+  }
+
+  .service-info h3,
+  .h3-theme {
+    font-size: 1.7rem;
+    color: var(--normal-text);
+    font-weight: 600;
+    line-height: 1.4;
+    margin: 20px 0 20px 0;
+    width: 95%;
+  }
+
+  .service-points {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+  }
+
+  .service-points span {
+    display: flex;
+    align-items: center;
+    gap: 1.3rem;
+    margin: 0 0 0 1rem;
+    font-size: 1rem
+  }
+
+  .service-points span i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .service-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #353535;
+  }
+
+  /* ---- Gym Facilities ---- */
+
+  #gymfacilities h2 {
+    text-align: center;
+    font-size: 32px;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+
+  .facility-toggle {
+    margin: 20px 0;
+    border-bottom: 2px solid var(--shadow-green);
+    overflow: hidden;
+  }
+
+  .facility-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0 15px 0;
+    cursor: pointer;
+  }
+
+  .facility-name {
+    font-size: 18px;
+    color: #fff;
+    font-weight: 600;
+  }
+
+  .arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    transition: all 400ms ease;
+  }
+
+  .facility-content {
+    padding: 15px;
+    display: none;
+    font-size: 16px;
+  }
+
+  .facility-toggle.open .facility-content {
+    display: block;
+  }
+
+  .facility-toggle.open .arrow {
+    transform: rotate(180deg);
+    transform-origin: center;
+  }
+
+  /* ---- Membership ---- */
+  .membership-container {
+    display: grid;
+    place-items: center;
+  }
+
+  .membership-container h3 {
+    margin: 20px 0 20px 0;
+    text-align: center;
+  }
+
+  .card-holder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-direction: column;
+  }
+
+  @media screen and (min-width: 768px) {
+
+    .card-holder {
+      flex-direction: row;
+    }
+  }
+
+  .offer-card {
+    display: grid;
+    place-items: center;
+    width: 300px;
+    border: 2px solid var(--primary-green);
+    padding: 20px 0;
+  }
+
+  .offer-card button {
+    background: var(--primary-green);
+  }
+
+  /* ---- Gym Gallery ---- */
+
+  .gallery-holder h3 {
+    font-size: 1.2rem;
+    margin: 20px 0 25px 0;
+  }
+
+  #gallery-slider {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 10px;
+  }
+
+  .gallery-track {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  .gallery-slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .gallery-slide {
+    min-width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .gallery-prev,
+  .gallery-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  .gallery-prev {
+    left: 10px;
+  }
+
+  .gallery-next {
+    right: 10px;
+  }
+
+  .gallery-prev:hover,
+  .gallery-next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  /* ---- Gym Reviews ---- */
+
+  #reviews {
+    background-color: var(--background);
+  }
+
+  .slider {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+  }
+
+  .review-box {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.4);
+  }
+
+  .rating {
+    font-size: 20px;
+    color: #FFD700;
+    margin-bottom: 10px;
+  }
+
+  .review {
+    font-size: 16px;
+    color: #E9E9E9;
+    margin-bottom: 20px;
+  }
+
+  .user-info {
+    display: flex;
+    align-items: center;
+  }
+
+  .user-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+  }
+
+  .user-name {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .dot-menu {
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #bbb;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .dot.active {
+    background-color: #333;
+  }
